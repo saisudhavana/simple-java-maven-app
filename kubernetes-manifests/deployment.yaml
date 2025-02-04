@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javaapp-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: javaapp
+        image: 984954343645.dkr.ecr.us-east-1.amazonaws.com/helloworld-java:latest"
+        ports:
+        - containerPort: 80
